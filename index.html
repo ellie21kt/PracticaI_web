@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolución Web | Versión Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main class="contenedor-principal">
+        <header>
+            <h1>Evolución Digital<span> de las aplicaciones web</span></h1>
+        </header>
+
+        <div class="card">
+            <h2 id="titulo-etapa">Bienvenido</h2>
+            <p id="descripcion">Haz clic en los botones inferiores para explorar la transformación de la arquitectura web a través del tiempo.</p>
+            
+            <div class="menu-botones">
+                <button class="btn-era" onclick="mostrarInfo('web1')">Web 1.0</button>
+                <button class="btn-era" onclick="mostrarInfo('web2')">Web 2.0</button>
+                <button class="btn-era" onclick="mostrarInfo('web3')">Web 3.0</button>
+            </div>
+
+            <button class="btn-descubrir" onclick="mostrarMensaje()">Descubre más</button>
+        </div>
+    </main>
+
+    <div id="miModal" class="modal">
+        <div class="modal-contenido">
+            <h2>Notificación</h2>
+            <p id="mensajeModal">Las aplicaciones web han evolucionado significativamente, pasando de documentos estáticos a ecosistemas inteligentes.</p>
+            <button class="btn-aceptar" onclick="cerrarModal()">Entendido</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
