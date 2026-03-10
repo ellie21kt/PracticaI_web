@@ -1,38 +1,53 @@
+/**
+ * Cambia el contenido de la tarjeta principal según la etapa seleccionada.
+ */
 function mostrarInfo(etapa) {
     const titulo = document.getElementById("titulo-etapa");
     const descripcion = document.getElementById("descripcion");
 
-    const contenido = {
+    // Diccionario de contenidos
+    const datos = {
         'web1': {
             t: "Web 1.0",
-            d: "La web estática. Contenido de solo lectura donde el usuario era un espectador pasivo."
+            d: "La primera generación de la web. Era puramente informativa, estática y de 'solo lectura'. No existía interacción real con el usuario."
         },
         'web2': {
             t: "Web 2.0",
-            d: "La web social e interactiva. El auge de las redes sociales y la creación de contenido."
+            d: "La web social e interactiva. Introdujo la colaboración, las redes sociales y el contenido generado por los propios usuarios."
         },
         'web3': {
             t: "Web 3.0",
-            d: "La web inteligente y descentralizada. Control total de datos y uso de IA avanzada."
+            d: "La web inteligente y descentralizada. Utiliza IA, aprendizaje automático y tecnologías blockchain para una experiencia personalizada y segura."
         }
     };
 
-    titulo.textContent = contenido[etapa].t;
-    descripcion.textContent = contenido[etapa].d;
+    // Actualización de los elementos en el DOM
+    titulo.textContent = datos[etapa].t;
+    descripcion.textContent = datos[etapa].d;
 }
 
+/**
+ * Abre la ventana emergente (Modal)
+ */
 function mostrarMensaje() {
-    document.getElementById("miModal").style.display = "flex";
+    const modal = document.getElementById("miModal");
+    modal.style.display = "flex"; // Usamos flex para mantener el centrado del CSS
 }
 
+/**
+ * Cierra la ventana emergente
+ */
 function cerrarModal() {
-    document.getElementById("miModal").style.display = "none";
+    const modal = document.getElementById("miModal");
+    modal.style.display = "none";
 }
 
-// Cerrar modal al hacer clic fuera de la caja
+/**
+ * Cierra el modal si el usuario hace clic fuera de la caja blanca
+ */
 window.onclick = function(event) {
-    let modal = document.getElementById("miModal");
-    if (event.target == modal) {
+    const modal = document.getElementById("miModal");
+    if (event.target === modal) {
         cerrarModal();
     }
-}
+};
