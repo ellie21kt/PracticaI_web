@@ -1,8 +1,36 @@
 :root {
     --bg-color: #0f172a;
     --card-bg: #1e293b;
-    --accent: #00f2ff; /* El azul cian anterior */
+    --accent: #00f2ff; /* El azul cian  */
     --text-white: #ffffff;
+}
+/* Centrado del contenedor principal */
+.contenedor-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente el header y la card */
+    justify-content: center;
+    width: 100%;
+}
+.titulo-principal {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: clamp(1.8rem, 5vw, 3rem); /* Tamaño fluido */
+    line-height: 1.2;
+}
+
+/* Colores específicos para cada parte del título */
+
+.txt-evolucion {
+    color: #ffffff; /* Blanco brillante */
+}
+.txt-de-las {
+    color: #94a3b8; /* Gris azulado suave */
+    font-weight: 400; /* Un poco más delgado para contraste */
+}
+.txt-apps {
+    color: var(--accent); /* Tu azul cian (#00f2ff) */
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.3); /* Brillo sutil */
 }
 
 body {
@@ -16,8 +44,6 @@ body {
     min-height: 100vh;
     padding: 20px;
 }
-
-.titulo-principal span { color: var(--accent); }
 
 .card {
     background: var(--card-bg);
@@ -55,7 +81,7 @@ body {
 .btn-era:hover { background: #475569; }
 .btn-era:active { transform: scale(0.95); }
 
-/* BOTÓN DESCUBRE MÁS (AZUL ANTERIOR) */
+/* BOTÓN DESCUBRE MÁS (AZUL) */
 .btn-descubrir {
     background: var(--accent);
     color: #0f172a;
