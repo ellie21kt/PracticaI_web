@@ -1,36 +1,9 @@
 :root {
     --bg-color: #0f172a;
-    --card-bg: #1e293b;
-    --accent: #00f2ff; /* El azul cian  */
+    --card-bg: rgba(30, 41, 59, 0.7); /* Efecto cristal */
+    --accent: #00f2ff;
     --text-white: #ffffff;
-}
-/* Centrado del contenedor principal */
-.contenedor-principal {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra horizontalmente el header y la card */
-    justify-content: center;
-    width: 100%;
-}
-.titulo-principal {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: clamp(1.8rem, 5vw, 3rem); /* Tamaño fluido */
-    line-height: 1.2;
-}
-
-/* Colores específicos para cada parte del título */
-
-.txt-evolucion {
-    color: #ffffff; /* Blanco brillante */
-}
-.txt-de-las {
-    color: #94a3b8; /* Gris azulado suave */
-    font-weight: 400; /* Un poco más delgado para contraste */
-}
-.txt-apps {
-    color: var(--accent); /* Tu azul cian (#00f2ff) */
-    text-shadow: 0 0 10px rgba(0, 242, 255, 0.3); /* Brillo sutil */
+    --text-dim: #94a3b8;
 }
 
 body {
@@ -43,94 +16,123 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    box-sizing: border-box;
 }
 
+.contenedor-principal {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* TITULO POR PARTES */
+.header-centrado { text-align: center; margin-bottom: 30px; }
+
+.linea-1 { display: block; font-size: 1.8rem; font-weight: 700; color: white; }
+.linea-2 { display: block; font-size: 1.1rem; color: var(--text-dim); margin: 5px 0; }
+.linea-3 { display: block; font-size: 2.2rem; font-weight: 700; color: var(--accent); text-shadow: 0 0 20px rgba(0, 242, 255, 0.3); }
+
+/* TARJETA GLASSMORPHISM */
 .card {
     background: var(--card-bg);
+    backdrop-filter: blur(12px); /* Desenfoque de fondo */
+    -webkit-backdrop-filter: blur(12px);
     width: 100%;
-    max-width: 750px;
-    min-height: 450px; /* Evita que la ventana cambie de tamaño */
+    min-height: 420px;
     padding: 40px;
-    border-radius: 25px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    border: 1px solid #334155;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
-#titulo-etapa { font-size: 2.5rem; color: var(--accent); margin-bottom: 10px; }
+#titulo-etapa { font-size: 2.5rem; color: var(--accent); margin: 0; }
+#descripcion { font-size: 1.1rem; color: var(--text-dim); line-height: 1.6; min-height: 60px; }
 
-#descripcion { font-size: 1.2rem; color: #cbd5e1; line-height: 1.6; min-height: 80px; }
-
-/* BOTONES DE ERA */
-.menu-botones { display: flex; gap: 10px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
+/* BOTONES */
+.menu-botones {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 25px 0;
+}
 
 .btn-era {
-    background: #334155;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
     color: white;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 14px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
-.btn-era:hover { background: #475569; }
-.btn-era:active { transform: scale(0.95); }
+.btn-era:hover { background: rgba(255, 255, 255, 0.15); border-color: var(--accent); }
 
-/* BOTÓN DESCUBRE MÁS (AZUL) */
 .btn-descubrir {
     background: var(--accent);
     color: #0f172a;
     border: none;
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-weight: 700;
+    padding: 16px 40px;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 1.1rem;
     cursor: pointer;
-    align-self: center;
-    box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 242, 255, 0.3);
+    transition: 0.3s;
 }
 
-.btn-descubrir:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(0, 242, 255, 0.4); }
-.btn-descubrir:active { transform: translateY(0) scale(0.98); }
+/* --- AJUSTES PARA MÓVIL --- */
+@media (max-width: 480px) {
+    .card { padding: 30px 20px; min-height: 500px; }
+    
+    .linea-1 { font-size: 1.5rem; }
+    .linea-3 { font-size: 1.8rem; }
 
-/* MODAL RESPONSIVO */
+    .menu-botones {
+        flex-direction: column; /* Botones uno sobre otro en móvil */
+        width: 100%;
+    }
+
+    .btn-era { width: 100%; padding: 18px; }
+}
+
+/* MODAL */
 .modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-    z-index: 1000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
     align-items: center;
     justify-content: center;
 }
 
 .modal-contenido {
-    background: var(--card-bg);
-    padding: 40px;
-    border-radius: 20px;
-    border: 2px solid var(--accent);
-    text-align: center;
+    background: #1e293b;
+    padding: 35px;
+    border-radius: 24px;
+    border: 1px solid var(--accent);
     width: 85%;
-    max-width: 450px;
+    max-width: 400px;
+    text-align: center;
 }
 
 .btn-aceptar {
     background: var(--accent);
     color: #0f172a;
     border: none;
-    padding: 12px 35px;
-    border-radius: 10px;
+    padding: 12px 30px;
+    border-radius: 12px;
     font-weight: bold;
     margin-top: 20px;
-    cursor: pointer;
-}
-
-@media (max-width: 600px) {
-    .menu-botones { flex-direction: column; }
-    .card { min-height: 550px; }
 }
