@@ -3,9 +3,18 @@ function mostrarInfo(etapa) {
     const descripcion = document.getElementById("descripcion");
 
     const contenido = {
-        'web1': { t: "Web 1.0", d: "La web de solo lectura y estática." },
-        'web2': { t: "Web 2.0", d: "La web social e interactiva." },
-        'web3': { t: "Web 3.0", d: "La web descentralizada e inteligente." }
+        'web1': {
+            t: "Web 1.0",
+            d: "La web estática de los 90. Páginas de solo lectura conectadas por hipervínculos simples sin interacción."
+        },
+        'web2': {
+            t: "Web 2.0",
+            d: "La web social e interactiva. El auge de las redes sociales, los wikis y la creación de contenido por el usuario."
+        },
+        'web3': {
+            t: "Web 3.0",
+            d: "La web inteligente y descentralizada. Uso de IA, Blockchain y control total de los datos por el usuario."
+        }
     };
 
     titulo.textContent = contenido[etapa].t;
@@ -13,7 +22,6 @@ function mostrarInfo(etapa) {
 }
 
 function mostrarMensaje() {
-    // Usamos flex para que el centrado del CSS se aplique
     document.getElementById("miModal").style.display = "flex";
 }
 
@@ -21,10 +29,7 @@ function cerrarModal() {
     document.getElementById("miModal").style.display = "none";
 }
 
-// Cerrar si el usuario toca fuera del recuadro
 window.onclick = function(event) {
     let modal = document.getElementById("miModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+    if (event.target == modal) { cerrarModal(); }
 }
