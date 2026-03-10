@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evolución Web | Versión Pro</title>
+    <title>Evolución Web Responsiva</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,27 +11,29 @@
 
     <main class="contenedor-principal">
         <header>
-            <h1>Evolución Digital<span> de las aplicaciones web</span></h1>
+            <h1>Evolución <span>Digital</span></h1>
         </header>
 
-        <div class="card">
+        <section class="card">
             <h2 id="titulo-etapa">Bienvenido</h2>
-            <p id="descripcion">Haz clic en los botones inferiores para explorar la transformación de la arquitectura web a través del tiempo.</p>
+            <div class="descripcion-container">
+                <p id="descripcion">Haz clic en los botones para descubrir cómo las aplicaciones web han evolucionado desde simples documentos hasta ecosistemas inteligentes.</p>
+            </div>
             
-            <div class="menu-botones">
+            <nav class="menu-botones">
                 <button class="btn-era" onclick="mostrarInfo('web1')">Web 1.0</button>
                 <button class="btn-era" onclick="mostrarInfo('web2')">Web 2.0</button>
                 <button class="btn-era" onclick="mostrarInfo('web3')">Web 3.0</button>
-            </div>
+            </nav>
 
             <button class="btn-descubrir" onclick="mostrarMensaje()">Descubre más</button>
-        </div>
+        </section>
     </main>
 
     <div id="miModal" class="modal">
         <div class="modal-contenido">
-            <h2>Notificación</h2>
-            <p id="mensajeModal">Las aplicaciones web han evolucionado significativamente, pasando de documentos estáticos a ecosistemas inteligentes.</p>
+            <h3>Notificación del Sistema</h3>
+            <p>Has activado la vista de información extendida. El diseño que ves es 100% adaptable.</p>
             <button class="btn-aceptar" onclick="cerrarModal()">Entendido</button>
         </div>
     </div>
